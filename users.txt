@@ -1,0 +1,1 @@
+USERS=(carlos maria joao debora  sebastiana roberto josefina amanda rogerio)
