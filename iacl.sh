@@ -6,14 +6,25 @@
 
 echo "Criando diretórios..."
 for FOLDER in ${FOLDERS[@]}; do
-	echo "dir $FOLDER";
-	echo "chmod 770 $FOLDER";
+	mkdir /$FOLDER;
+	if [$FOLDER = "public"]; then
+		chmod 770 $FOLDER
+	else
+		chmod 770 $FOLDER
+	fi
 done
 
 echo "Criando grupos..."
 for GRUPO in ${GRUPOS[@]}; do
-	echo "groupadd $GRUPO";
-	echo "chown root:$GRUPO
+	groupadd $GRUPO;
+	if [$GRUPO = "GRP_ADM"]; then
+		chown root:$GRUPO /adm;
+	elif [$GRUPO = "GRP_VEN"]; then
+		chown root:$GRUPO /ven;
+	elif [$GRUPO = "GRP_SEC"]; then
+		chown root:$GRUPO /sec;
+	fi
+
 done
 
 echo "Criando usuários..."
