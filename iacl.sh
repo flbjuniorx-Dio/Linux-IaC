@@ -6,11 +6,11 @@
 
 echo "Criando diretórios..."
 for FOLDER in ${FOLDERS[@]}; do
-	mkdir $FOLDER;
+	mkdir /$FOLDER;
 	if [ $FOLDER = "publico" ]; then
-		chmod 770 $FOLDER
+		chmod 770 /$FOLDER
 	else
-		chmod 770 $FOLDER
+		chmod 770 /$FOLDER
 	fi
 done
 
@@ -29,7 +29,7 @@ done
 
 echo "Criando usuários..."
 for USER in ${USERS[@]}; do 
-    useradd $USER -m -s /bin/bash -p $(openssl passwd crypt Senha123)
+    useradd -p $(openssl passwd Senha123) -s /bin/bash -m $USER
 done
 
 echo "Atribuindo grupos..."
