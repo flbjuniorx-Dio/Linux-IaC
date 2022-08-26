@@ -8,7 +8,7 @@ echo "Criando diretórios..."
 for FOLDER in ${FOLDERS[@]}; do
 	mkdir /$FOLDER;
 	if [ $FOLDER = "publico" ]; then
-		chmod 770 /$FOLDER
+		chmod 777 /$FOLDER
 	else
 		chmod 770 /$FOLDER
 	fi
