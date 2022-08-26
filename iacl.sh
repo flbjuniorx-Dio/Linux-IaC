@@ -6,8 +6,8 @@
 
 echo "Criando diretórios..."
 for FOLDER in ${FOLDERS[@]}; do
-	mkdir ~/$FOLDER;
-	if [$FOLDER = "public"]; then
+	mkdir $FOLDER;
+	if [ $FOLDER = "publico" ]; then
 		chmod 770 $FOLDER
 	else
 		chmod 770 $FOLDER
@@ -17,26 +17,29 @@ done
 echo "Criando grupos..."
 for GRUPO in ${GRUPOS[@]}; do
 	groupadd $GRUPO;
-	if [$GRUPO = "GRP_ADM"]; then
-		chown root:$GRUPO ~/adm;
-	elif [$GRUPO = "GRP_VEN"]; then
-		chown root:$GRUPO ~/ven;
-	elif [$GRUPO = "GRP_SEC"]; then
-		chown root:$GRUPO ~/sec;
+	if [ $GRUPO = "GRP_ADM" ]; then
+		chown root:$GRUPO /adm;
+	elif [ $GRUPO = "GRP_VEN" ]; then
+		chown root:$GRUPO /ven;
+	elif [ $GRUPO = "GRP_SEC" ]; then
+		chown root:$GRUPO /sec;
 	fi
 
 done
 
 echo "Criando usuários..."
 for USER in ${USERS[@]}; do 
-    useradd $USER -m -s /bin/bash -p $(openssl passwd -crypt Senha123)
-    if [($USER = "carlos") OR ($USER = "maria") OR ($USER = "joao")]; then
-	    usermod -G GRP_ADM $USER
-    elif [($USER = "debora") OR ($USER = "sebastiana") OR ($USER = "roberto")]; then
-	    usermod -G GRP_VEN $USER
-    elif [($USER = "josefina") OR ($USER = "amanda") OR ($USER = "rogerio")]; then
-	    usermod -G GRP_SEC $USER
-    fi
+    useradd $USER -m -s /bin/bash -p $(openssl passwd crypt Senha123)
 done
 
+echo "Atribuindo grupos..."
+for ADM_USER in ${GROUPADM[@]}; do
+       usermod -G GRP_ADM $ADM_USER
+done
+for VEN_USER in ${GROUPVEN[@]}; do
+       usermod -G GRP_VEN $VEN_USER
+done
 
+for SEC_USER in ${GROUPSEC[@]}; do
+       usermod -G GRP_SEC $SEC_USER
+done
