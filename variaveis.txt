@@ -1,0 +1,13 @@
+# Lista de grupos
+GRUPOS=(GRP_ADM GRP_VEN GRP_SEC)
+
+# Lista de usuários
+USERS=(carlos maria joao debora  sebastiana roberto josefina amanda rogerio)
+
+# Usuários de cada grupo
+GROUPADM=(carlos maria joao)
+GROUPVEN=(debora sebastiana roberto)
+GROUPSEC=(josefina amanda rogerio)
+
+# Lista de pastas a serem criadas
+FOLDERS=(publico adm ven sec)
