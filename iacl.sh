@@ -1,8 +1,6 @@
 #!/bin/bash
 
-. users.txt
-. grupos.txt
-. diretorios.txt
+. variaveis.txt
 
 echo "Criando diretórios..."
 for FOLDER in ${FOLDERS[@]}; do

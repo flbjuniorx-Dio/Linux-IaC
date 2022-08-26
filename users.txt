@@ -1,4 +1,0 @@
-USERS=(carlos maria joao debora  sebastiana roberto josefina amanda rogerio)
-GROUPADM=(carlos maria joao)
-GROUPVEN=(debora sebastiana roberto)
-GROUPSEC=(josefina amanda rogerio)
